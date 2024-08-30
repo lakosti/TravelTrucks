@@ -22,7 +22,7 @@ import bookingReducer from "./bookTruck/slice.js";
 // });
 
 const favouritesPersistConfig = {
-  key: "trucks",
+  key: "favouritesTrucks",
   storage,
   whitelist: ["favourites"],
 };
