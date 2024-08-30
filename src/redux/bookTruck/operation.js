@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { BASE_URL } from "../../utilS/constants.js";
+import { BASE_URL } from "../../utils/constants.js";
 
 export const sendForm = createAsyncThunk(
   "sendForm/CreatesendForm",
