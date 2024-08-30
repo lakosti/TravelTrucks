@@ -1,12 +1,21 @@
-/* :root{
-    --
-} */
+:root {
+  --star-active: #ffc531;
+  --star-disabled: #f2f4f7;
+  --btn-color: #e44848;
+  --btn-active: #d84343;
+  --dark-color: #101828;
+  --light-dark-color: #475467;
+  --bg-color: #f7f7f7;
+  --filter-bg: #f2f4f7;
+  --active-color: #d84343;
+  --animatiom: 250ms linear;
+}
 
-/* body {
-  font-family: Poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.29;
-  font-size: 14px;
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
   font-weight: 400;
+  /* line-height: 1.29;
   letter-spacing: -0.01em;
 
   color-scheme: light dark;
@@ -16,17 +25,14 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 @media screen and (min-width: 768px) {
-  body {
-    font-size: 18px;
-    line-height: 1.33;
-  }
-} */
+}
+@media screen and (min-width: 1440px) {
+}
 
-/* Reset styles */
 h1,
 h2,
 h3,
