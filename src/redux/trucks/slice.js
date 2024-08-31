@@ -19,10 +19,17 @@ const trucksReducer = createSlice({
   name: "trucks",
   initialState,
   reducers: {
-    filtered: (state, { payload }) => {},
-    getFavouritesList: (state, { payload }) => {
-      state.favourites.push(payload);
+    toggleFavouritesList: (state, { payload }) => {
+      const index = state.favourites.findIndex(
+        (item) => item.id === payload.id
+      );
+      if (index >= 0) {
+        state.favourites.splice(index, 1);
+      } else {
+        state.favourites.push(payload);
+      }
     },
+    filteredList: (state, { payload }) => {},
   },
   extraReducers: (builder) => {
     builder.addCase(getTracks.pending, (state) => {
@@ -55,6 +62,6 @@ const trucksReducer = createSlice({
   },
 });
 
-export const { filtered, getFavouritesList } = trucksReducer.actions;
+export const { filteredList, toggleFavouritesList } = trucksReducer.actions;
 
 export default trucksReducer.reducer;

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTracks, getTrucksMore } from "../../redux/trucks/operations.js";
-import Item from "../Item/Item.jsx";
 import { Link } from "react-router-dom";
+
+import { getTracks, getTrucksMore } from "../../redux/trucks/operations.js";
+
+import Item from "../Item/Item.jsx";
 
 const Items = () => {
   const filters = useSelector((state) => state.trucks.filtres);
@@ -51,9 +53,7 @@ const Items = () => {
       {trucks && (
         <div>
           {trucks.map((data) => (
-            // <Link to={`/campers/${data.id}`} key={data.id}>
             <Item key={data.id} {...data} />
-            // </Link>
           ))}
         </div>
       )}

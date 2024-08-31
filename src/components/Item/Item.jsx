@@ -1,20 +1,24 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+
+import { toggleFavouritesList } from "../../redux/trucks/slice.js";
 
 import icons from "../../assets/img/icons.svg";
-
-import { getFavouritesList } from "../../redux/trucks/slice.js";
-
 import css from "./Item.module.css";
 
 const Item = (data) => {
+  const dispatch = useDispatch();
+  const favourites = useSelector((state) => state.trucks.favourites);
+  const isFavourite = favourites.some((item) => item.id === data.id);
+
   const { gallery, name, location, price, rating, reviews, description, id } =
     data;
-  const dispatch = useDispatch();
 
-  const addToFavorite = async () => {
-    dispatch(getFavouritesList(data));
+  const handleFavouriteClick = () => {
+    dispatch(toggleFavouritesList(data));
   };
+
   return (
     <div>
       <div>
@@ -28,8 +32,8 @@ const Item = (data) => {
       <h2>{name}</h2>
       <div>
         <p>€{price}.00</p>
-        <button onClick={addToFavorite}>
-          <svg width={24} height={24}>
+        <button onClick={handleFavouriteClick}>
+          <svg width={24} height={24} className={isFavourite ? css.active : ""}>
             <use href={`${icons}#favourites`} />
           </svg>
         </button>
