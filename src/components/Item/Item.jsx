@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import icons from "../../assets/img/icons.svg";
 
+import { getFavouritesList } from "../../redux/trucks/slice.js";
+
 import css from "./Item.module.css";
 
-const Item = ({
-  gallery,
-  name,
-  location,
-  price,
-  rating,
-  reviews,
-  description,
-}) => {
+const Item = (data) => {
+  const { gallery, name, location, price, rating, reviews, description, id } =
+    data;
+  const dispatch = useDispatch();
+
+  const addToFavorite = async () => {
+    dispatch(getFavouritesList(data));
+  };
   return (
     <div>
       <div>
@@ -26,7 +28,7 @@ const Item = ({
       <h2>{name}</h2>
       <div>
         <p>€{price}.00</p>
-        <button>
+        <button onClick={addToFavorite}>
           <svg width={24} height={24}>
             <use href={`${icons}#favourites`} />
           </svg>
@@ -69,7 +71,7 @@ const Item = ({
           </svg>
         </div>
       </div>
-      <Link to="/campers/:id">
+      <Link to={`/campers/${id}`}>
         <button>Show more</button>
       </Link>
     </div>

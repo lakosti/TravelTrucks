@@ -5,7 +5,7 @@ import { getTracks, getTrucksMore } from "./operations.js";
 const initialState = {
   list: [],
   totalPages: 1,
-  favorites: [],
+  favourites: [],
   isLoading: false,
   isError: null,
   filters: {
@@ -20,6 +20,9 @@ const trucksReducer = createSlice({
   initialState,
   reducers: {
     filtered: (state, { payload }) => {},
+    getFavouritesList: (state, { payload }) => {
+      state.favourites.push(payload);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getTracks.pending, (state) => {
@@ -51,5 +54,7 @@ const trucksReducer = createSlice({
     });
   },
 });
+
+export const { filtered, getFavouritesList } = trucksReducer.actions;
 
 export default trucksReducer.reducer;

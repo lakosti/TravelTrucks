@@ -51,9 +51,9 @@ const Items = () => {
       {trucks && (
         <div>
           {trucks.map((data) => (
-            <Link to={`/campers/${data.id}`} key={data.id}>
-              <Item {...data} />
-            </Link>
+            // <Link to={`/campers/${data.id}`} key={data.id}>
+            <Item key={data.id} {...data} />
+            // </Link>
           ))}
         </div>
       )}
