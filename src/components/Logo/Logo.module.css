@@ -1,7 +1,5 @@
 .logo {
-}
-
-.logoText {
-}
-.logoAccent {
+  position: absolute;
+  left: 64px;
+  height: 16px;
 }

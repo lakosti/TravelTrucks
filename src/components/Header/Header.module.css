@@ -3,7 +3,8 @@
   position: fixed;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   height: 68px;
   background-color: var(--bg-color);
+  border-bottom: 1px solid var(--filter-bg);
 }

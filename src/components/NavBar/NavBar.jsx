@@ -4,11 +4,23 @@ import css from "./NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <div>
-      <div className={css.wrapper}>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/catalog">Catalog</NavLink>
-      </div>
+    <div className={css.wrapper}>
+      <NavLink
+        className={({ isActive }) =>
+          `${css.link} ${isActive ? css.active : ""}`
+        }
+        to="/"
+      >
+        Home
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `${css.link} ${isActive ? css.active : ""}`
+        }
+        to="/catalog"
+      >
+        Catalog
+      </NavLink>
     </div>
   );
 };

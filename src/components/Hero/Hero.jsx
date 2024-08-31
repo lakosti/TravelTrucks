@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import css from "./Hero.module.css";
 
 const Home = () => {
@@ -9,7 +11,9 @@ const Home = () => {
           <p className={css.label}>
             You can find everything you want in our catalog
           </p>
-          <button className={css.btn}>View Now</button>
+          <Link to="/catalog">
+            <button className={css.btn}>View Now</button>
+          </Link>
         </div>
       </div>
     </div>
