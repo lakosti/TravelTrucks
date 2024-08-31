@@ -33,17 +33,22 @@ const DetailInfo = () => {
           <h2>{truck.name}</h2>
           <div>
             <svg width={24} height={24}>
+              <use href={`${icons}#star`} />
+            </svg>
+            <p>
+              {truck.rating}({truck.reviews.length}) Reviews
+            </p>
+          </div>
+          <div>
+            <svg width={24} height={24}>
               <use href={`${icons}#map`} />
             </svg>
             {truck.location}
           </div>
           <p>Price: €{truck.price}.00</p>
-          <img
-            src={truck.gallery[0].original}
-            alt={truck.name}
-            width={292}
-            height={312}
-          />
+          {truck.gallery.map(({ original }, i) => (
+            <img key={i} src={original} width={292} height={312} />
+          ))}
 
           <p>{truck.description}</p>
         </div>
@@ -53,3 +58,18 @@ const DetailInfo = () => {
 };
 
 export default DetailInfo;
+
+//    "gallery": [
+//       {
+//         "thumb": "https://ftp.goit.study/img/campers-test-task/1-1.webp",
+//         "original": "https://ftp.goit.study/img/campers-test-task/1-1.webp"
+//       },
+//       {
+//         "thumb": "https://ftp.goit.study/img/campers-test-task/1-2.webp",
+//         "original": "https://ftp.goit.study/img/campers-test-task/1-2.webp"
+//       },
+//       {
+//         "thumb": "https://ftp.goit.study/img/campers-test-task/1-3.webp",
+//         "original": "https://ftp.goit.study/img/campers-test-task/1-3.webp"
+//       }
+//     ],
