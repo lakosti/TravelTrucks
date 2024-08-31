@@ -4,9 +4,7 @@ import Hero from "../../components/Hero/Hero.jsx";
 const HomePage = () => {
   return (
     <div>
-      <div>
-        <Header />
-      </div>
+      <Header />
       <Hero />
     </div>
   );
