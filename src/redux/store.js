@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
+import { configureStore } from "@reduxjs/toolkit";
 import {
   persistReducer,
   persistStore,
@@ -12,7 +12,6 @@ import {
 } from "redux-persist";
 
 import trucksReducer from "./trucks/slice.js";
-import bookingReducer from "./bookTruck/slice.js";
 
 // export const store = configureStore({
 //   reducer: {
@@ -30,7 +29,6 @@ const favouritesPersistConfig = {
 export const store = configureStore({
   reducer: {
     trucks: persistReducer(favouritesPersistConfig, trucksReducer),
-    booking: bookingReducer,
   },
 
   middleware: (getDefaultMiddleware) =>
