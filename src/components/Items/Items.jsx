@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { getTracks, getTrucksMore } from "../../redux/trucks/operations.js";
 
@@ -12,6 +11,8 @@ const Items = () => {
   const [page, setPage] = useState(1);
   // const [loadingMore, setLoadingMore] = useState(false); //loader from more btn
   const [trucks, setTrucks] = useState(null);
+  //! ПЕРЕВІРКА НА КІНЕЦЬ
+  //totalpage / items on page (12 / 4)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,7 +48,7 @@ const Items = () => {
   const handleShowNextTruck = () => {
     setPage(page + 1);
   };
-
+  console.log(page);
   return (
     <div>
       {trucks && (
@@ -57,7 +58,8 @@ const Items = () => {
           ))}
         </div>
       )}
-      <button onClick={handleShowNextTruck} disabled={page === 6}>
+      {/* //! ПОМІНЯТИ ПЕРЕВІРКУ НА КІНЕЦЬ */}
+      <button onClick={handleShowNextTruck} disabled={page === 3}>
         Load more
       </button>
     </div>

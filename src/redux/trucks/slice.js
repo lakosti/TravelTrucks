@@ -9,7 +9,7 @@ const initialState = {
   isLoading: false,
   isError: null,
   filters: {
-    type: "",
+    form: "",
     location: "",
     detail: {},
   },
@@ -65,3 +65,15 @@ const trucksReducer = createSlice({
 export const { filteredList, toggleFavouritesList } = trucksReducer.actions;
 
 export default trucksReducer.reducer;
+
+// AC(pin):true +
+// bathroom(pin):true +
+// kitchen(pin):true +
+// TV(pin):false +
+// transmission: automatic; +
+
+// radio(pin):true
+// refrigerator(pin):true
+// microwave(pin):true
+// gas(pin):true
+// water(pin):true

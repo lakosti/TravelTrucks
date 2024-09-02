@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { toggleFavouritesList } from "../../redux/trucks/slice.js";
@@ -12,8 +12,25 @@ const Item = (data) => {
   const favourites = useSelector((state) => state.trucks.favourites);
   const isFavourite = favourites.some((item) => item.id === data.id);
 
-  const { gallery, name, location, price, rating, reviews, description, id } =
-    data;
+  const {
+    gallery,
+    name,
+    location,
+    price,
+    rating,
+    reviews,
+    description,
+    id,
+    TV,
+    AC,
+    bathroom,
+    kitchen,
+    radio,
+    refrigerator,
+    microwave,
+    water,
+    gas,
+  } = data;
 
   const handleFavouriteClick = () => {
     dispatch(toggleFavouritesList(data));
@@ -53,7 +70,7 @@ const Item = (data) => {
         {location}
       </div>
       <p>{description}</p>
-      <div>
+      <div style={{ display: "flex", gap: "20px" }}>
         <div>
           <svg width={20} height={20}>
             <use href={`${icons}#automatic`} />
@@ -64,16 +81,69 @@ const Item = (data) => {
             <use href={`${icons}#fuel`} />
           </svg>
         </div>
-        <div>
-          <svg width={20} height={20}>
-            <use href={`${icons}#kitchen`} />
-          </svg>
-        </div>
-        <div>
-          <svg width={20} height={20}>
-            <use href={`${icons}#ac`} />
-          </svg>
-        </div>
+        {AC && (
+          <div>
+            <svg width={20} height={20}>
+              <use href={`${icons}#ac`} />
+            </svg>
+          </div>
+        )}
+        {kitchen && (
+          <div>
+            <svg width={20} height={20}>
+              <use href={`${icons}#kitchen`} />
+            </svg>
+          </div>
+        )}
+        {radio && (
+          <div>
+            <svg width={20} height={20}>
+              <use href={`${icons}#radio`} />
+            </svg>
+          </div>
+        )}
+        {TV && (
+          <div>
+            <svg width={20} height={20}>
+              <use href={`${icons}#tv`} />
+            </svg>
+          </div>
+        )}
+        {water && (
+          <div>
+            <svg width={20} height={20}>
+              <use href={`${icons}#water`} />
+            </svg>
+          </div>
+        )}
+        {gas && (
+          <div>
+            <svg width={20} height={20}>
+              <use href={`${icons}#gas`} />
+            </svg>
+          </div>
+        )}
+        {microwave && (
+          <div>
+            <svg width={20} height={20}>
+              <use href={`${icons}#microwave`} />
+            </svg>
+          </div>
+        )}
+        {refrigerator && (
+          <div>
+            <svg width={20} height={20}>
+              <use href={`${icons}#refrigerator`} />
+            </svg>
+          </div>
+        )}
+        {bathroom && (
+          <div>
+            <svg width={20} height={20}>
+              <use href={`${icons}#bathroom`} />
+            </svg>
+          </div>
+        )}
       </div>
       <Link to={`/campers/${id}`}>
         <button>Show more</button>
