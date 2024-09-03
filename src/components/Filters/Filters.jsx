@@ -1,10 +1,12 @@
 import icons from "../../assets/img/icons.svg";
+import Location from "../Location/Location.jsx";
 
 import css from "./Filters.module.css";
 
 const Filters = () => {
   return (
     <div>
+      <Location />
       <h2>Filters</h2>
       <p>Vehicle equipment</p>
       <div>

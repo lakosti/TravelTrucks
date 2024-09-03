@@ -9,10 +9,8 @@ const Items = () => {
   const filters = useSelector((state) => state.trucks.filtres);
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
-  // const [loadingMore, setLoadingMore] = useState(false); //loader from more btn
-  const [trucks, setTrucks] = useState(null);
-  //! ПЕРЕВІРКА НА КІНЕЦЬ
-  //totalpage / items on page (12 / 4)
+  const [trucks, setTrucks] = useState([]);
+  const [totalTrucks, setTotalTrucks] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,13 +19,13 @@ const Items = () => {
           getTracks({ page: 1, limit: 4, filters })
         );
         setTrucks(payload.items);
+        setTotalTrucks(payload.total);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
   }, [dispatch, filters]);
-  console.log(trucks);
 
   useEffect(() => {
     if (page > 1) {
@@ -37,6 +35,7 @@ const Items = () => {
             getTrucksMore({ page, limit: 4, filters })
           );
           setTrucks((prevTrucks) => [...prevTrucks, ...payload.items]);
+          setTotalTrucks(payload.total);
         } catch (error) {
           console.log(error);
         }
@@ -48,7 +47,6 @@ const Items = () => {
   const handleShowNextTruck = () => {
     setPage(page + 1);
   };
-  console.log(page);
   return (
     <div>
       {trucks && (
@@ -58,10 +56,12 @@ const Items = () => {
           ))}
         </div>
       )}
-      {/* //! ПОМІНЯТИ ПЕРЕВІРКУ НА КІНЕЦЬ */}
-      <button onClick={handleShowNextTruck} disabled={page === 3}>
-        Load more
-      </button>
+
+      {totalTrucks !== trucks.length && trucks.length ? (
+        <button onClick={handleShowNextTruck}>Load more</button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

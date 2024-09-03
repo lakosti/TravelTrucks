@@ -37,117 +37,126 @@ const Item = (data) => {
   };
 
   return (
-    <div>
-      <div>
+    <div className={css.wrap}>
+      <div className={css.item}>
         <img
           src={gallery[0].thumb}
+          className={css.img}
           alt="Example truck"
           width={292}
           height={320}
         />
       </div>
-      <h2>{name}</h2>
       <div>
-        <p>€{price}.00</p>
-        <button onClick={handleFavouriteClick}>
-          <svg width={24} height={24} className={isFavourite ? css.active : ""}>
-            <use href={`${icons}#favourites`} />
-          </svg>
-        </button>
-      </div>
-      <div>
-        <svg width={24} height={24}>
-          <use href={`${icons}#star`} />
-        </svg>
-        <p>
-          {rating}({reviews.length}) Reviews
-        </p>
-      </div>
-      <div>
-        <svg width={24} height={24}>
-          <use href={`${icons}#map`} />
-        </svg>
-        {location}
-      </div>
-      <p>{description}</p>
-      <div style={{ display: "flex", gap: "20px" }}>
-        <div>
-          <svg width={20} height={20}>
-            <use href={`${icons}#automatic`} />
-          </svg>
+        <div className={css.nameContainer}>
+          <h2 className={css.name}>{name}</h2>
+          <div className={css.innerPrice}>
+            <p className={css.price}>€{price}.00</p>
+            <button className={css.favouriteBtn} onClick={handleFavouriteClick}>
+              <svg
+                width={24}
+                height={24}
+                className={isFavourite ? css.active : ""}
+              >
+                <use href={`${icons}#favourites`} />
+              </svg>
+            </button>
+          </div>
         </div>
-        <div>
-          <svg width={20} height={20}>
-            <use href={`${icons}#fuel`} />
+        <div className={css.reviews}>
+          <svg className={css.reviewsSvg} width={24} height={24}>
+            <use href={`${icons}#star`} />
           </svg>
+          <p className={css.rating}>
+            {rating}({reviews.length}) Reviews
+          </p>
         </div>
-        {AC && (
-          <div>
-            <svg width={20} height={20}>
-              <use href={`${icons}#ac`} />
+        <div className={css.innerLocation}>
+          <svg className={css.locationSvg} width={24} height={24}>
+            <use href={`${icons}#map`} />
+          </svg>
+          {location}
+        </div>
+        <p className={css.desc}>{description.slice(0, 64) + "..."}</p>
+        <div className={css.filterList}>
+          <div className={css.filterItem}>
+            <svg className={css.filterSvg} width={20} height={20}>
+              <use href={`${icons}#automatic`} />
             </svg>
           </div>
-        )}
-        {kitchen && (
-          <div>
-            <svg width={20} height={20}>
-              <use href={`${icons}#kitchen`} />
+          <div className={css.filterItem}>
+            <svg className={css.filterSvg} width={20} height={20}>
+              <use href={`${icons}#fuel`} />
             </svg>
           </div>
-        )}
-        {radio && (
-          <div>
-            <svg width={20} height={20}>
-              <use href={`${icons}#radio`} />
-            </svg>
-          </div>
-        )}
-        {TV && (
-          <div>
-            <svg width={20} height={20}>
-              <use href={`${icons}#tv`} />
-            </svg>
-          </div>
-        )}
-        {water && (
-          <div>
-            <svg width={20} height={20}>
-              <use href={`${icons}#water`} />
-            </svg>
-          </div>
-        )}
-        {gas && (
-          <div>
-            <svg width={20} height={20}>
-              <use href={`${icons}#gas`} />
-            </svg>
-          </div>
-        )}
-        {microwave && (
-          <div>
-            <svg width={20} height={20}>
-              <use href={`${icons}#microwave`} />
-            </svg>
-          </div>
-        )}
-        {refrigerator && (
-          <div>
-            <svg width={20} height={20}>
-              <use href={`${icons}#refrigerator`} />
-            </svg>
-          </div>
-        )}
-        {bathroom && (
-          <div>
-            <svg width={20} height={20}>
-              <use href={`${icons}#bathroom`} />
-            </svg>
-          </div>
-        )}
+          {AC && (
+            <div className={css.filterItem}>
+              <svg className={css.filterSvg} width={20} height={20}>
+                <use href={`${icons}#ac`} />
+              </svg>
+            </div>
+          )}
+          {kitchen && (
+            <div className={css.filterItem}>
+              <svg className={css.filterSvg} width={20} height={20}>
+                <use href={`${icons}#kitchen`} />
+              </svg>
+            </div>
+          )}
+          {radio && (
+            <div className={css.filterItem}>
+              <svg className={css.filterSvg} width={20} height={20}>
+                <use href={`${icons}#radio`} />
+              </svg>
+            </div>
+          )}
+          {TV && (
+            <div className={css.filterItem}>
+              <svg className={css.filterSvg} width={20} height={20}>
+                <use href={`${icons}#tv`} />
+              </svg>
+            </div>
+          )}
+          {water && (
+            <div className={css.filterItem}>
+              <svg className={css.filterSvg} width={20} height={20}>
+                <use href={`${icons}#water`} />
+              </svg>
+            </div>
+          )}
+          {gas && (
+            <div className={css.filterItem}>
+              <svg className={css.filterSvg} width={20} height={20}>
+                <use href={`${icons}#gas`} />
+              </svg>
+            </div>
+          )}
+          {microwave && (
+            <div className={css.filterItem}>
+              <svg className={css.filterSvg} width={20} height={20}>
+                <use href={`${icons}#microwave`} />
+              </svg>
+            </div>
+          )}
+          {refrigerator && (
+            <div className={css.filterItem}>
+              <svg className={css.filterSvg} width={20} height={20}>
+                <use href={`${icons}#refrigerator`} />
+              </svg>
+            </div>
+          )}
+          {bathroom && (
+            <div className={css.filterItem}>
+              <svg className={css.filterSvg} width={20} height={20}>
+                <use href={`${icons}#bathroom`} />
+              </svg>
+            </div>
+          )}
+        </div>
+        <Link to={`/campers/${id}`}>
+          <button>Show more</button>
+        </Link>
       </div>
-      <Link to={`/campers/${id}`}>
-        <button>Show more</button>
-      </Link>
     </div>
   );
 };

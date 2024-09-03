@@ -37,7 +37,7 @@ const trucksReducer = createSlice({
       state.isError = false;
     });
     builder.addCase(getTracks.fulfilled, (state, { payload }) => {
-      state.list = payload.items;
+      state.list = payload;
       state.totalPages = payload.total;
       state.isLoading = false;
       state.isError = null;
