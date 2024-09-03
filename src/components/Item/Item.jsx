@@ -47,7 +47,7 @@ const Item = (data) => {
           height={320}
         />
       </div>
-      <div>
+      <div className={css.wrapper}>
         <div className={css.nameContainer}>
           <h2 className={css.name}>{name}</h2>
           <div className={css.innerPrice}>
@@ -83,17 +83,20 @@ const Item = (data) => {
             <svg className={css.filterSvg} width={20} height={20}>
               <use href={`${icons}#automatic`} />
             </svg>
+            <p className={css.filterName}>Automatic</p>
           </div>
           <div className={css.filterItem}>
             <svg className={css.filterSvg} width={20} height={20}>
               <use href={`${icons}#fuel`} />
             </svg>
+            <p className={css.filterName}>Petrol</p>
           </div>
           {AC && (
             <div className={css.filterItem}>
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#ac`} />
               </svg>
+              <p className={css.filterName}>AC</p>
             </div>
           )}
           {kitchen && (
@@ -101,6 +104,7 @@ const Item = (data) => {
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#kitchen`} />
               </svg>
+              <p className={css.filterName}>Kitchen</p>
             </div>
           )}
           {radio && (
@@ -108,6 +112,7 @@ const Item = (data) => {
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#radio`} />
               </svg>
+              <p className={css.filterName}>Radio</p>
             </div>
           )}
           {TV && (
@@ -115,6 +120,7 @@ const Item = (data) => {
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#tv`} />
               </svg>
+              <p className={css.filterName}>TV</p>
             </div>
           )}
           {water && (
@@ -122,6 +128,7 @@ const Item = (data) => {
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#water`} />
               </svg>
+              <p className={css.filterName}>Water</p>
             </div>
           )}
           {gas && (
@@ -129,6 +136,7 @@ const Item = (data) => {
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#gas`} />
               </svg>
+              <p className={css.filterName}>Gas</p>
             </div>
           )}
           {microwave && (
@@ -136,6 +144,7 @@ const Item = (data) => {
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#microwave`} />
               </svg>
+              <p className={css.filterName}>Microwave</p>
             </div>
           )}
           {refrigerator && (
@@ -143,6 +152,7 @@ const Item = (data) => {
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#refrigerator`} />
               </svg>
+              <p className={css.filterName}>Refrigerator</p>
             </div>
           )}
           {bathroom && (
@@ -150,11 +160,12 @@ const Item = (data) => {
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#bathroom`} />
               </svg>
+              <p className={css.filterName}>Bathroom</p>
             </div>
           )}
         </div>
         <Link to={`/campers/${id}`}>
-          <button>Show more</button>
+          <button className={css.showMore}>Show more</button>
         </Link>
       </div>
     </div>
