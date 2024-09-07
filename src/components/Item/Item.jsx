@@ -35,9 +35,10 @@ const Item = (data) => {
   const handleFavouriteClick = () => {
     dispatch(toggleFavouritesList(data));
   };
-
+  // ! отпимізувати СВГ
+  //! пофіксити закінчення опису ...
   return (
-    <div className={css.wrap}>
+    <li className={css.wrap}>
       <div className={css.item}>
         <img
           src={gallery[0].thumb}
@@ -63,19 +64,21 @@ const Item = (data) => {
             </button>
           </div>
         </div>
-        <div className={css.reviews}>
-          <svg className={css.reviewsSvg} width={24} height={24}>
-            <use href={`${icons}#star`} />
-          </svg>
-          <p className={css.rating}>
-            {rating}({reviews.length}) Reviews
-          </p>
-        </div>
-        <div className={css.innerLocation}>
-          <svg className={css.locationSvg} width={24} height={24}>
-            <use href={`${icons}#map`} />
-          </svg>
-          {location}
+        <div className={css.innerReviews}>
+          <div className={css.reviews}>
+            <svg className={css.reviewsSvg} width={24} height={24}>
+              <use href={`${icons}#star`} />
+            </svg>
+            <p className={css.rating}>
+              {rating}({reviews.length}) Reviews
+            </p>
+          </div>
+          <div className={css.innerLocation}>
+            <svg className={css.locationSvg} width={24} height={24}>
+              <use href={`${icons}#map`} />
+            </svg>
+            {location}
+          </div>
         </div>
         <p className={css.desc}>{description.slice(0, 64) + "..."}</p>
         <div className={css.filterList}>
@@ -168,7 +171,7 @@ const Item = (data) => {
           <button className={css.showMore}>Show more</button>
         </Link>
       </div>
-    </div>
+    </li>
   );
 };
 

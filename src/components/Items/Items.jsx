@@ -5,6 +5,8 @@ import { getTracks, getTrucksMore } from "../../redux/trucks/operations.js";
 
 import Item from "../Item/Item.jsx";
 
+import css from "./Items.module.css";
+
 const Items = () => {
   const filters = useSelector((state) => state.trucks.filtres);
   const dispatch = useDispatch();
@@ -48,20 +50,23 @@ const Items = () => {
     setPage(page + 1);
   };
   return (
-    <div>
+    <div className={css.wrapper}>
       {trucks && (
-        <div>
+        <ul className={css.list}>
           {trucks.map((data) => (
             <Item key={data.id} {...data} />
           ))}
-        </div>
+        </ul>
       )}
 
       {totalTrucks !== trucks.length && trucks.length ? (
-        <button onClick={handleShowNextTruck}>Load more</button>
+        <button className={css.btn} onClick={handleShowNextTruck}>
+          Load more
+        </button>
       ) : (
         ""
       )}
+      {/* <button onClick={handleShowNextTruck}>Load more</button> */}
     </div>
   );
 };
