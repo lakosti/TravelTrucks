@@ -1,8 +1,10 @@
 .section {
   padding: 120px 64px;
-}
-
-.catalogWrap {
   display: flex;
   gap: 64px;
 }
+
+/* .catalogWrap {
+  display: flex;
+  gap: 64px;
+} */

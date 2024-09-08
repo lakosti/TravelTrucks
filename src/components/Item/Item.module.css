@@ -1,9 +1,12 @@
-.wrap {
+.item {
   padding: 24px;
   display: flex;
   border: 1px solid #dadde1;
   border-radius: 20px;
   gap: 24px;
+}
+.item:not(:last-child) {
+  margin-bottom: 24px;
 }
 .wrapper {
   flex-grow: 1;
@@ -24,7 +27,7 @@
 }
 .nameContainer {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
 }
 

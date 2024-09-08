@@ -3,11 +3,11 @@ import { Toaster } from "react-hot-toast";
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <>
       {children}
       {/* <Outlet /> */}
       <Toaster position="top-right" />
-    </div>
+    </>
   );
 };
 

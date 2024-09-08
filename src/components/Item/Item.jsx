@@ -23,6 +23,8 @@ const Item = (data) => {
     id,
     TV,
     AC,
+    transmission,
+    engine,
     bathroom,
     kitchen,
     radio,
@@ -38,16 +40,15 @@ const Item = (data) => {
   // ! отпимізувати СВГ
   //! пофіксити закінчення опису ...
   return (
-    <li className={css.wrap}>
-      <div className={css.item}>
-        <img
-          src={gallery[0].thumb}
-          className={css.img}
-          alt="Example truck"
-          width={292}
-          height={320}
-        />
-      </div>
+    <li className={css.item}>
+      <img
+        src={gallery[0].thumb}
+        className={css.img}
+        alt="Example truck"
+        width={292}
+        height={320}
+      />
+
       <div className={css.wrapper}>
         <div className={css.nameContainer}>
           <h2 className={css.name}>{name}</h2>
@@ -81,92 +82,96 @@ const Item = (data) => {
           </div>
         </div>
         <p className={css.desc}>{description.slice(0, 64) + "..."}</p>
-        <div className={css.filterList}>
-          <div className={css.filterItem}>
+        <ul className={css.filterList}>
+          <li className={css.filterItem}>
             <svg className={css.filterSvg} width={20} height={20}>
               <use href={`${icons}#automatic`} />
             </svg>
-            <p className={css.filterName}>Automatic</p>
-          </div>
-          <div className={css.filterItem}>
+            <p className={css.filterName}>
+              {transmission.charAt(0).toUpperCase() + transmission.slice(1)}
+            </p>
+          </li>
+          <li className={css.filterItem}>
             <svg className={css.filterSvg} width={20} height={20}>
               <use href={`${icons}#fuel`} />
             </svg>
-            <p className={css.filterName}>Petrol</p>
-          </div>
+            <p className={css.filterName}>
+              {engine.charAt(0).toUpperCase() + engine.slice(1)}
+            </p>
+          </li>
           {AC && (
-            <div className={css.filterItem}>
+            <li className={css.filterItem}>
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#ac`} />
               </svg>
               <p className={css.filterName}>AC</p>
-            </div>
+            </li>
           )}
           {kitchen && (
-            <div className={css.filterItem}>
+            <li className={css.filterItem}>
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#kitchen`} />
               </svg>
               <p className={css.filterName}>Kitchen</p>
-            </div>
+            </li>
           )}
           {radio && (
-            <div className={css.filterItem}>
+            <li className={css.filterItem}>
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#radio`} />
               </svg>
               <p className={css.filterName}>Radio</p>
-            </div>
+            </li>
           )}
           {TV && (
-            <div className={css.filterItem}>
+            <li className={css.filterItem}>
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#tv`} />
               </svg>
               <p className={css.filterName}>TV</p>
-            </div>
+            </li>
           )}
           {water && (
-            <div className={css.filterItem}>
+            <li className={css.filterItem}>
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#water`} />
               </svg>
               <p className={css.filterName}>Water</p>
-            </div>
+            </li>
           )}
           {gas && (
-            <div className={css.filterItem}>
+            <li className={css.filterItem}>
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#gas`} />
               </svg>
               <p className={css.filterName}>Gas</p>
-            </div>
+            </li>
           )}
           {microwave && (
-            <div className={css.filterItem}>
+            <li className={css.filterItem}>
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#microwave`} />
               </svg>
               <p className={css.filterName}>Microwave</p>
-            </div>
+            </li>
           )}
           {refrigerator && (
-            <div className={css.filterItem}>
+            <li className={css.filterItem}>
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#refrigerator`} />
               </svg>
               <p className={css.filterName}>Refrigerator</p>
-            </div>
+            </li>
           )}
           {bathroom && (
-            <div className={css.filterItem}>
+            <li className={css.filterItem}>
               <svg className={css.filterSvg} width={20} height={20}>
                 <use href={`${icons}#bathroom`} />
               </svg>
               <p className={css.filterName}>Bathroom</p>
-            </div>
+            </li>
           )}
-        </div>
+        </ul>
         <Link to={`/campers/${id}`}>
           <button className={css.showMore}>Show more</button>
         </Link>

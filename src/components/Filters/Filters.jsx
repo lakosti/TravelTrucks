@@ -5,7 +5,7 @@ import css from "./Filters.module.css";
 
 const Filters = () => {
   return (
-    <div>
+    <div className={css.wrap}>
       <Location />
       <h2>Filters</h2>
       <p>Vehicle equipment</p>

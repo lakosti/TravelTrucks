@@ -6,13 +6,13 @@ import css from "./DetailPage.module.css";
 
 const ItemPage = () => {
   return (
-    <div>
+    <>
       <Header />
       <div className={css.section}>
         <DetailInfo />
         <BookForm />
       </div>
-    </div>
+    </>
   );
 };
 

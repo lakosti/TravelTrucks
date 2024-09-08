@@ -6,15 +6,13 @@ import css from "./CatalogPage.module.css";
 
 const CatalogPage = () => {
   return (
-    <div>
+    <>
       <Header />
       <section className={css.section}>
-        <div className={css.catalogWrap}>
-          {/* <Filters /> */}
-          <Items />
-        </div>
+        <Filters />
+        <Items />
       </section>
-    </div>
+    </>
   );
 };
 

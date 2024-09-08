@@ -14,7 +14,7 @@ const FavouritePage = lazy(() =>
 
 const App = () => {
   return (
-    <div>
+    <>
       <Layout>
         <Suspense fallback={null}>
           <Routes>
@@ -25,7 +25,7 @@ const App = () => {
           </Routes>
         </Suspense>
       </Layout>
-    </div>
+    </>
   );
 };
 
