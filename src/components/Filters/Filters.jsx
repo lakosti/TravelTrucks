@@ -1,59 +1,16 @@
-import icons from "../../assets/img/icons.svg";
 import Location from "../Location/Location.jsx";
 
 import css from "./Filters.module.css";
+import FiltersEquipment from "../FiltersEquipment/FiltersEquipment.jsx";
+import FiltersType from "../FiltersType/FiltersType.jsx";
 
 const Filters = () => {
   return (
     <div className={css.wrap}>
       <Location />
       <h2>Filters</h2>
-      <p>Vehicle equipment</p>
-      <div>
-        <button>
-          <svg width={32} height={32}>
-            <use href={`${icons}#ac`} />
-          </svg>
-        </button>
-        <button>
-          <svg width={32} height={32}>
-            <use href={`${icons}#automatic`} />
-          </svg>
-        </button>
-        <button>
-          <svg width={32} height={32}>
-            <use href={`${icons}#kitchen`} />
-          </svg>
-        </button>
-        <button>
-          <svg width={32} height={32}>
-            <use href={`${icons}#tv`} />
-          </svg>
-        </button>
-        <button>
-          <svg width={32} height={32}>
-            <use href={`${icons}#bathroom`} />
-          </svg>
-        </button>
-      </div>
-      <p>Vehicle type</p>
-      <div>
-        <button>
-          <svg width={32} height={32}>
-            <use href={`${icons}#van`} />
-          </svg>
-        </button>
-        <button>
-          <svg width={32} height={32}>
-            <use href={`${icons}#full`} />
-          </svg>
-        </button>
-        <button>
-          <svg width={32} height={32}>
-            <use href={`${icons}#alcove`} />
-          </svg>
-        </button>
-      </div>
+      <FiltersEquipment />
+      <FiltersType />
       <button>Search</button>
     </div>
   );
