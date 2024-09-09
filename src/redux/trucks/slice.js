@@ -8,6 +8,7 @@ const initialState = {
   favourites: [],
   isLoading: false,
   isError: null,
+  cities: [],
   filters: {
     form: "",
     location: "",
@@ -41,6 +42,7 @@ const trucksReducer = createSlice({
       state.totalPages = payload.total;
       state.isLoading = false;
       state.isError = null;
+      state.cities = payload.items.map((item) => item.location);
     });
     builder.addCase(getTracks.rejected, (state) => {
       state.isLoading = false;
@@ -50,10 +52,11 @@ const trucksReducer = createSlice({
       state.isLoading = true;
       state.isError = false;
     });
-    builder.addCase(getTrucksMore.fulfilled, (state, action) => {
-      state.list = action.payload;
+    builder.addCase(getTrucksMore.fulfilled, (state, { payload }) => {
+      state.list = payload;
       state.isLoading = false;
       state.isError = null;
+      state.cities = payload.items.map((item) => item.location);
     });
     builder.addCase(getTrucksMore.rejected, (state) => {
       state.isLoading = false;

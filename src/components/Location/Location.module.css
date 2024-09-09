@@ -22,7 +22,24 @@
   top: 50%;
   transform: translateY(-50%);
 }
-.input:focus {
+.input:focus,
+.input:hover {
   border: 1px solid var(--active-color);
   outline: none;
+}
+
+.suggestions {
+  border: 1px solid var(--bg-color);
+}
+.suggestionItem {
+  padding: 5px 25px;
+  transition: background-color 250ms ease-in, color 250ms ease-in;
+}
+.suggestionItem:not(:last-child) {
+  margin-bottom: 5px;
+}
+.active {
+  border: 1px solid var(--bg-color);
+  color: var(--white);
+  background-color: var(--active-color);
 }
