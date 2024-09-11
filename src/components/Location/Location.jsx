@@ -5,51 +5,45 @@ import icons from "../../assets/img/icons.svg";
 
 import css from "./Location.module.css";
 
-// const cities = [
-//   "Dnipro",
-//   "Poltava",
-//   "Kyiv",
-//   "Dnipro",
-//   "Kharkiv",
-//   "Kyiv",
-//   "Odesa",
-//   "Sumy",
-//   "Odesa",
-//   "Lviv",
-// ];
-
 const Location = () => {
   const [query, setQuery] = useState("");
   const [filteredCities, setFilteredCities] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(-1); // індекс активної підказки
+  const [activeIndex, setActiveIndex] = useState(-1); // індекс обраного міста
 
-  const cities = useSelector((state) => state.trucks.cities);
+  const cities = useSelector((state) => state.trucks.allCities);
 
-  //! масив унікальних міст
+  // масив унікальних міст
   const uniqueCities = [...new Set(cities)];
 
   const handleInputChange = (evt) => {
     evt.preventDefault(); // об'єкт події
 
     const value = evt.target.value;
-    setQuery(value);
+    setQuery(value); //те значення шо ми ввели встановлюємо як місто
 
+    //якщо ми щось ввели
     if (value) {
       const suggestions = uniqueCities.filter((city) =>
         city.toLowerCase().includes(value.toLowerCase())
       );
-      setFilteredCities(suggestions);
+      setFilteredCities(suggestions); // відфільтровані міста в яких співпадають букви що ми ввели
       setActiveIndex(-1); // скидаємо активний індекс при новому вводі
     } else {
-      setFilteredCities([]);
+      setFilteredCities(uniqueCities); //якщо нічого не ввели показуємо всі міста
     }
   };
 
   const handleCityClick = (city) => {
-    setQuery(city);
-    setFilteredCities([]);
+    setQuery(city); //встановлюємо значення яке обрало в інтуп
+    setFilteredCities([]); //як обрали якесь місто - скидаємо решту міст
   };
 
+  const handleAllCities = () => {
+    //якщо нічого не введено -- показуємо всі міста
+    if (!query) {
+      setFilteredCities(uniqueCities);
+    }
+  };
   const handleKeyDown = (evt) => {
     if (filteredCities.length > 0) {
       if (evt.key === "ArrowDown") {
@@ -63,8 +57,7 @@ const Location = () => {
           prevIndex > 0 ? prevIndex - 1 : filteredCities.length - 1
         );
       } else if (evt.key === "Enter") {
-        // вибираємо активне місто при натисканні Enter
-        evt.preventDefault(); // об'єкт події
+        evt.preventDefault(); // вибираємо активне місто при натисканні Enter
         if (activeIndex >= 0) {
           setQuery(filteredCities[activeIndex]);
           setFilteredCities([]);
@@ -84,6 +77,7 @@ const Location = () => {
               placeholder="Kyiv, Ukraine"
               className={css.input}
               value={query}
+              onClick={handleAllCities}
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
             />

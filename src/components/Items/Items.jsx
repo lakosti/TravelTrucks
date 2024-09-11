@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getTracks, getTrucksMore } from "../../redux/trucks/operations.js";
+import {
+  getAllCities,
+  getTracks,
+  getTrucksMore,
+} from "../../redux/trucks/operations.js";
 
 import Item from "../Item/Item.jsx";
 
@@ -49,6 +53,11 @@ const Items = () => {
   const handleShowNextTruck = () => {
     setPage(page + 1);
   };
+
+  useEffect(() => {
+    dispatch(getAllCities());
+  }, [dispatch]);
+
   return (
     <div className={css.wrapper}>
       {trucks && (
@@ -66,7 +75,6 @@ const Items = () => {
       ) : (
         ""
       )}
-      {/* <button onClick={handleShowNextTruck}>Load more</button> */}
     </div>
   );
 };

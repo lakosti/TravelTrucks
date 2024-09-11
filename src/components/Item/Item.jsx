@@ -1,50 +1,33 @@
 import { useDispatch, useSelector } from "react-redux";
-// import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { toggleFavouritesList } from "../../redux/trucks/slice.js";
 
 import icons from "../../assets/img/icons.svg";
 import css from "./Item.module.css";
+
+import IconsList from "../IconsList/IconsList.jsx";
 
 const Item = (data) => {
   const dispatch = useDispatch();
   const favourites = useSelector((state) => state.trucks.favourites);
   const isFavourite = favourites.some((item) => item.id === data.id);
 
-  const {
-    gallery,
-    name,
-    location,
-    price,
-    rating,
-    reviews,
-    description,
-    id,
-    TV,
-    AC,
-    transmission,
-    engine,
-    bathroom,
-    kitchen,
-    radio,
-    refrigerator,
-    microwave,
-    water,
-    gas,
-  } = data;
+  const { gallery, name, location, price, rating, reviews, description, id } =
+    data;
 
   const handleFavouriteClick = () => {
     dispatch(toggleFavouritesList(data));
   };
-  // ! отпимізувати СВГ
+
+  //! отпимізувати СВГ
   //! пофіксити закінчення опису ...
+
   return (
     <li className={css.item}>
       <img
-        src={gallery[0].thumb}
+        src={gallery[1].original}
         className={css.img}
-        alt="Example truck"
+        alt={name}
         width={292}
         height={320}
       />
@@ -81,8 +64,9 @@ const Item = (data) => {
             {location}
           </div>
         </div>
-        <p className={css.desc}>{description.slice(0, 64) + "..."}</p>
-        <ul className={css.filterList}>
+        <p className={css.desc}>{description.slice(0, 68) + "..."}</p>
+        <IconsList {...data} />
+        {/* <ul className={css.filterList}>
           <li className={css.filterItem}>
             <svg className={css.filterSvg} width={20} height={20}>
               <use href={`${icons}#automatic`} />
@@ -171,7 +155,7 @@ const Item = (data) => {
               <p className={css.filterName}>Bathroom</p>
             </li>
           )}
-        </ul>
+        </ul> */}
         <Link to={`/campers/${id}`}>
           <button className={css.showMore}>Show more</button>
         </Link>

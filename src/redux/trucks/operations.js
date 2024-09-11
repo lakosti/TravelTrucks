@@ -51,3 +51,15 @@ export const getTrucksMore = createAsyncThunk(
     }
   }
 );
+
+export const getAllCities = createAsyncThunk(
+  "cities/getCities",
+  async (_, thunkApi) => {
+    try {
+      const res = await axios.get(`${BASE_URL}/campers`);
+      return res.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);

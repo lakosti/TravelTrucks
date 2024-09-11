@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { getTracks, getTrucksMore } from "./operations.js";
+import { getAllCities, getTracks, getTrucksMore } from "./operations.js";
 
 const initialState = {
   list: [],
@@ -8,7 +8,7 @@ const initialState = {
   favourites: [],
   isLoading: false,
   isError: null,
-  cities: [],
+  allCities: [],
   filters: {
     form: "",
     location: "",
@@ -21,6 +21,7 @@ const trucksReducer = createSlice({
   initialState,
   reducers: {
     toggleFavouritesList: (state, { payload }) => {
+      //знаходимо індекс по якому людина натиснула
       const index = state.favourites.findIndex(
         (item) => item.id === payload.id
       );
@@ -42,7 +43,6 @@ const trucksReducer = createSlice({
       state.totalPages = payload.total;
       state.isLoading = false;
       state.isError = null;
-      state.cities = payload.items.map((item) => item.location);
     });
     builder.addCase(getTracks.rejected, (state) => {
       state.isLoading = false;
@@ -56,11 +56,13 @@ const trucksReducer = createSlice({
       state.list = payload;
       state.isLoading = false;
       state.isError = null;
-      state.cities = payload.items.map((item) => item.location);
     });
     builder.addCase(getTrucksMore.rejected, (state) => {
       state.isLoading = false;
       state.isError = true;
+    });
+    builder.addCase(getAllCities.fulfilled, (state, { payload }) => {
+      state.allCities = payload.items.map(({ location }) => location);
     });
   },
 });
