@@ -8,7 +8,7 @@ const Features = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const [features, setFeatures] = useState(); //всі дані тепер тут
+  const [features, setFeatures] = useState(""); //всі дані тепер тут
 
   useEffect(() => {
     const fetchFeatures = async () => {
@@ -21,7 +21,6 @@ const Features = () => {
     };
     fetchFeatures();
   }, [dispatch, id]);
-  console.log(features);
   return (
     <>
       {features && (

@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { getAllCities, getTracks, getTrucksMore } from "./operations.js";
+import {
+  getAllCities,
+  getTrackById,
+  getTracks,
+  getTrucksMore,
+} from "./operations.js";
 
 const initialState = {
   list: [],
@@ -9,6 +14,7 @@ const initialState = {
   isLoading: false,
   isError: null,
   allCities: [],
+  currentTrucks: null,
   filters: {
     form: "",
     location: "",
@@ -60,6 +66,9 @@ const trucksReducer = createSlice({
     builder.addCase(getTrucksMore.rejected, (state) => {
       state.isLoading = false;
       state.isError = true;
+    });
+    builder.addCase(getTrackById.fulfilled, (state, { payload }) => {
+      state.currentTrucks = payload; //закидаємо в стейт по айді грузовик
     });
     builder.addCase(getAllCities.fulfilled, (state, { payload }) => {
       state.allCities = payload.items.map(({ location }) => location);
