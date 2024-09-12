@@ -1,20 +1,21 @@
 import icons from "../../assets/img/icons.svg";
 
+import css from "../FiltersEquipment/Filters.module.css";
+
 const types = ["van", "full", "alcove"];
 const names = ["Van", "Fully Integrated", "Alcove"];
 
 const FiltersType = () => {
   return (
     <>
-      <h3>Vehicle type</h3>
-
-      <ul>
+      <h3 className={css.title}>Vehicle type</h3>
+      <ul className={css.list}>
         {types.map((type, i) => (
-          <li key={i}>
-            <svg width={32} height={32}>
+          <li className={css.item} key={i}>
+            <svg className={css.icon} width={32} height={32}>
               <use href={`${icons}#${type}`} />
             </svg>
-            <p>{names[i]}</p>
+            <p className={css.name}>{names[i]}</p>
           </li>
         ))}
       </ul>

@@ -24,6 +24,11 @@
   object-fit: cover;
   object-position: 60%;
   border-radius: 10px;
+  background-color: rgb(234, 233, 233);
+  background-image: url(../../assets/img/offphoto.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .nameContainer {
   display: flex;

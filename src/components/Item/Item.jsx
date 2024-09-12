@@ -24,13 +24,15 @@ const Item = (data) => {
 
   return (
     <li className={css.item}>
-      <img
-        src={gallery[1].original}
-        className={css.img}
-        alt={name}
-        width={292}
-        height={320}
-      />
+      <div className={css.sizeWrapper}>
+        <img
+          src={gallery[0].thumb}
+          className={css.img}
+          alt={name}
+          width={292}
+          height={320}
+        />
+      </div>
 
       <div className={css.wrapper}>
         <div className={css.nameContainer}>

@@ -12,6 +12,7 @@
 .input {
   padding: 20px 48px;
   border-radius: 12px;
+  width: 360px;
   border: none;
   background-color: var(--bg-color);
   border: 1px solid var(--bg-color);
@@ -31,6 +32,7 @@
 }
 
 .suggestions {
+  width: 360px;
   border: 1px solid var(--bg-color);
 }
 .suggestionItem {

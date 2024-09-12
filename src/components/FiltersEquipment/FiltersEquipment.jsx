@@ -1,6 +1,6 @@
 import icons from "../../assets/img/icons.svg";
 
-import css from "./FiltersEquipment.module.css";
+import css from "./Filters.module.css";
 
 const iconId = ["ac", "automatic", "kitchen", "tv", "bathroom"];
 const iconName = ["AC", "Automatic", "Kitchen", "TV", "Bathroom"];
@@ -15,7 +15,7 @@ const FiltersEquipment = () => {
             <svg width={32} height={32} className={css.icon}>
               <use href={`${icons}#${name}`} />
             </svg>
-            <p>{iconName[i]}</p>
+            <p className={css.name}>{iconName[i]}</p>
           </li>
         ))}
       </ul>

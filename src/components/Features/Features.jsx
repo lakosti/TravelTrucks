@@ -1,26 +1,27 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getTrackById } from "../../redux/trucks/operations.js";
+import { useSelector } from "react-redux";
+
 import IconsList from "../../components/IconsList/IconsList.jsx";
 
 const Features = () => {
-  const { id } = useParams();
-  const dispatch = useDispatch();
+  // const { id } = useParams();
+  // const dispatch = useDispatch();
 
-  const [features, setFeatures] = useState(""); //всі дані тепер тут
+  // const [features, setFeatures] = useState(""); //всі дані тепер тут
 
-  useEffect(() => {
-    const fetchFeatures = async () => {
-      try {
-        const { payload } = await dispatch(getTrackById(id));
-        setFeatures(payload);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchFeatures();
-  }, [dispatch, id]);
+  // useEffect(() => {
+  //   const fetchFeatures = async () => {
+  //     try {
+  //       const { payload } = await dispatch(getTrackById(id));
+  //       setFeatures(payload);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchFeatures();
+  // }, [dispatch, id]);
+
+  const features = useSelector((state) => state.trucks.currentTrucks);
+
   return (
     <>
       {features && (

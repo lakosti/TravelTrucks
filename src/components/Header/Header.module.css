@@ -7,4 +7,5 @@
   height: 72px;
   background-color: var(--bg-color);
   border-bottom: 1px solid var(--filter-bg);
+  z-index: 2;
 }
