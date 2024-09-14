@@ -1,0 +1,24 @@
+.form {
+  width: 631px;
+  padding: 44px 52px;
+  border-radius: 10px;
+  background-color: var(--bg-color);
+}
+.title {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #dadde1;
+  margin-bottom: 24px;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+.item:not(:last-child) {
+  margin-bottom: 16px;
+}
+.value,
+.name {
+  color: var(--dark-color);
+  font-weight: 500;
+  line-height: 1.5;
+}

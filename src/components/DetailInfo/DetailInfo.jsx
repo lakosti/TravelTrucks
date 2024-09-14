@@ -6,11 +6,10 @@ import { useEffect, useState } from "react";
 import icons from "../../assets/img/icons.svg";
 
 import css from "./DetailInfo.module.css";
+// //!зробити модалку для перегляду картинок
 
 const DetailInfo = () => {
   const dispatch = useDispatch();
-
-  //!зробити модалку для перегляду картинок
   const { id } = useParams();
   const [truck, setTruck] = useState(null);
 
@@ -29,28 +28,41 @@ const DetailInfo = () => {
   return (
     <>
       {truck && (
-        <div>
-          <h2>{truck.name}</h2>
-          <div>
-            <svg width={24} height={24}>
-              <use href={`${icons}#star`} />
-            </svg>
-            <p>
-              {truck.rating}({truck.reviews.length}) Reviews
-            </p>
-          </div>
-          <div>
-            <svg width={24} height={24}>
-              <use href={`${icons}#map`} />
-            </svg>
-            {truck.location}
-          </div>
-          <p>Price: €{truck.price}.00</p>
-          {truck.gallery.map(({ original }, i) => (
-            <img key={i} src={original} width={292} height={312} />
-          ))}
+        <div className={css.infoWrap}>
+          <h2 className={css.title}>{truck.name}</h2>
 
-          <p>{truck.description}</p>
+          <div className={css.inner}>
+            <div className={css.ratingWrap}>
+              <svg className={css.ratingIcon} width={16} height={16}>
+                <use href={`${icons}#star`} />
+              </svg>
+              <p className={css.ratingText}>
+                {truck.rating}({truck.reviews.length}) Reviews
+              </p>
+            </div>
+            <div className={css.locationWrap}>
+              <svg width={16} className={css.locationIcon} height={16}>
+                <use href={`${icons}#map`} />
+              </svg>
+              <p className={css.locationText}> {truck.location}</p>
+            </div>
+          </div>
+
+          <p className={css.price}> €{truck.price}.00</p>
+
+          <div className={css.gallery}>
+            {truck.gallery.map(({ original }, i) => (
+              <img
+                className={css.img}
+                key={i}
+                src={original}
+                width={480}
+                height={380}
+              />
+            ))}
+          </div>
+
+          <p className={css.desc}>{truck.description}</p>
         </div>
       )}
     </>
@@ -58,18 +70,3 @@ const DetailInfo = () => {
 };
 
 export default DetailInfo;
-
-//    "gallery": [
-//       {
-//         "thumb": "https://ftp.goit.study/img/campers-test-task/1-1.webp",
-//         "original": "https://ftp.goit.study/img/campers-test-task/1-1.webp"
-//       },
-//       {
-//         "thumb": "https://ftp.goit.study/img/campers-test-task/1-2.webp",
-//         "original": "https://ftp.goit.study/img/campers-test-task/1-2.webp"
-//       },
-//       {
-//         "thumb": "https://ftp.goit.study/img/campers-test-task/1-3.webp",
-//         "original": "https://ftp.goit.study/img/campers-test-task/1-3.webp"
-//       }
-//     ],

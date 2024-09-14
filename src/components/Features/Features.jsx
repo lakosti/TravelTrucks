@@ -2,56 +2,41 @@ import { useSelector } from "react-redux";
 
 import IconsList from "../../components/IconsList/IconsList.jsx";
 
+import css from "./Features.module.css";
+
 const Features = () => {
-  // const { id } = useParams();
-  // const dispatch = useDispatch();
-
-  // const [features, setFeatures] = useState(""); //всі дані тепер тут
-
-  // useEffect(() => {
-  //   const fetchFeatures = async () => {
-  //     try {
-  //       const { payload } = await dispatch(getTrackById(id));
-  //       setFeatures(payload);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   fetchFeatures();
-  // }, [dispatch, id]);
-
   const features = useSelector((state) => state.trucks.currentTrucks);
 
   return (
     <>
       {features && (
-        <div style={{ backgroundColor: "orange" }}>
-          <IconsList {...features} />
-          <h3>Vehicle details</h3>
-          <ul>
-            <li>
-              <span>Form</span>
-              <span>{features.form}</span>
+        <div className={css.form}>
+          <IconsList {...features} className={css.icons} />
+          <h3 className={css.title}>Vehicle details</h3>
+          <ul className={css.list}>
+            <li className={css.item}>
+              <span className={css.name}>Form</span>
+              <span className={css.value}>{features.form}</span>
             </li>
-            <li>
-              <span>Length</span>
-              <span>{features.length}</span>
+            <li className={css.item}>
+              <span className={css.name}>Length</span>
+              <span className={css.value}>{features.length}</span>
             </li>
-            <li>
-              <span>Width</span>
-              <span>{features.width}</span>
+            <li className={css.item}>
+              <span className={css.name}>Width</span>
+              <span className={css.value}>{features.width}</span>
             </li>
-            <li>
-              <span>Height</span>
-              <span>{features.height}</span>
+            <li className={css.item}>
+              <span className={css.name}>Height</span>
+              <span className={css.value}>{features.height}</span>
             </li>
-            <li>
-              <span>Tank</span>
-              <span>{features.tank}</span>
+            <li className={css.item}>
+              <span className={css.name}>Tank</span>
+              <span className={css.value}>{features.tank}</span>
             </li>
-            <li>
-              <span>Consumption</span>
-              <span>{features.consumption}</span>
+            <li className={css.item}>
+              <span className={css.name}>Consumption</span>
+              <span className={css.value}>{features.consumption}</span>
             </li>
           </ul>
         </div>

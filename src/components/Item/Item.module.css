@@ -63,7 +63,9 @@
   background-color: transparent;
   border: none;
 }
-
+.reviewsSvg {
+  fill: var(--star-active);
+}
 .active {
   fill: var(--active-color);
 }

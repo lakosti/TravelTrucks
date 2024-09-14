@@ -13,7 +13,7 @@ const ItemPage = () => {
       <div className={css.section}>
         <DetailInfo />
         <Features />
-        <Reviews />
+        {/* <Reviews /> */}
         <BookForm />
       </div>
     </>

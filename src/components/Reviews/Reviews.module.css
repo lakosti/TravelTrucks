@@ -1,0 +1,7 @@
+.starYellow {
+  fill: var(--star-active);
+}
+
+.starGrey {
+  fill: var(--star-disabled);
+}

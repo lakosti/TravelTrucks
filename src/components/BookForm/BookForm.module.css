@@ -1,0 +1,50 @@
+.wrap {
+  width: 641px;
+  padding: 44px 57px;
+  background-color: var(--white);
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+}
+.title {
+  color: var(--dark-color);
+  font-weight: 600;
+  font-size: 20;
+  line-height: 1.2;
+
+  margin-bottom: 8px;
+}
+.label {
+  color: #6c717b;
+  line-height: 1.5;
+
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+}
+.textarea {
+  margin-bottom: 24px;
+}
+
+.btn {
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+
+  padding: 16px 63px;
+  border-radius: 200px;
+  border: none;
+  background-color: var(--btn-color);
+  color: var(--white);
+  margin: 0 auto;
+
+  transition: background-color 250ms ease-in;
+}
+.btn:hover {
+  background-color: var(--btn-active);
+}

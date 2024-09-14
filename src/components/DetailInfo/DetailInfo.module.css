@@ -1,0 +1,59 @@
+.infoWrap {
+  margin-bottom: 60px;
+}
+.title {
+  margin-bottom: 8px;
+}
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ratingIcon {
+  fill: var(--star-active);
+  margin-right: 4px;
+}
+.ratingText {
+  text-decoration: underline;
+}
+.locationWrap,
+.ratingWrap {
+  display: flex;
+  align-items: center;
+}
+.ratingText,
+.locationText {
+  color: var(--dark-color);
+  line-height: 1.5;
+}
+.locationIcon {
+  margin-right: 4px;
+}
+.price,
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--dark-color);
+}
+.price {
+  margin-bottom: 28px;
+}
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.img {
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: 15%;
+}
+.desc {
+  color: var(--light-dark-color);
+  line-height: 1.5;
+}

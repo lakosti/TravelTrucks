@@ -2,9 +2,9 @@ import { Field, Form, Formik } from "formik";
 
 import toast from "react-hot-toast";
 
-import css from "./BookForm.module.css";
-
 import CustomDateInput from "../CustomDateInput/CustomDateInput.jsx";
+
+import css from "./BookForm.module.css";
 
 const initialValue = {
   name: "",
@@ -20,9 +20,11 @@ const BookForm = () => {
   };
 
   return (
-    <>
-      <h3>Book your campervan now</h3>
-      <p>Stay connected! We are always ready to help you.</p>
+    <div className={css.wrap}>
+      <h3 className={css.title}>Book your campervan now</h3>
+      <p className={css.label}>
+        Stay connected! We are always ready to help you.
+      </p>
       <Formik initialValues={initialValue} onSubmit={handleSubmit}>
         <Form className={css.form}>
           <Field
@@ -40,7 +42,7 @@ const BookForm = () => {
           <Field name="date" component={CustomDateInput} />
           <Field
             as="textarea"
-            className={css.input}
+            className={css.textarea}
             placeholder="Comment"
             name="comment"
           />
@@ -50,7 +52,7 @@ const BookForm = () => {
           </button>
         </Form>
       </Formik>
-    </>
+    </div>
   );
 };
 
