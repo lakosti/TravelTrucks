@@ -1,3 +1,36 @@
+.list {
+  width: 631px;
+}
+.item:not(:last-child) {
+  margin-bottom: 44px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.letter {
+  padding: 15px 21px;
+  color: #e44848;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  background-color: var(--filter-bg);
+  border-radius: 60px;
+  margin-right: 16px;
+}
+.name {
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--dark-color);
+}
+.comment {
+  color: var(--light-dark-color);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
 .starYellow {
   fill: var(--star-active);
 }

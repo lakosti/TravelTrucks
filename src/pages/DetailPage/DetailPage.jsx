@@ -1,8 +1,9 @@
+import { Outlet } from "react-router-dom";
+
 import BookForm from "../../components/BookForm/BookForm.jsx";
 import DetailInfo from "../../components/DetailInfo/DetailInfo.jsx";
 import Header from "../../components/Header/Header.jsx";
-import Features from "../../components/Features/Features.jsx";
-import Reviews from "../../components/Reviews/Reviews.jsx";
+import DetailBar from "../../components/DetailBar/DetailBar.jsx";
 
 import css from "./DetailPage.module.css";
 
@@ -12,9 +13,11 @@ const ItemPage = () => {
       <Header />
       <div className={css.section}>
         <DetailInfo />
-        <Features />
-        {/* <Reviews /> */}
-        <BookForm />
+        <DetailBar />
+        <div className={css.navBar}>
+          <Outlet />
+          <BookForm />
+        </div>
       </div>
     </>
   );

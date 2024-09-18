@@ -43,13 +43,19 @@ const Reviews = () => {
   return (
     <>
       {current && (
-        <ul>
+        <ul className={css.list}>
           {current.reviews.map((review, i) => (
-            <li key={i}>
-              <span>{review.reviewer_name[0]}</span>
-              <p>{review.reviewer_name}</p>
-              <div>{renderRating(review.reviewer_rating)}</div>
-              <p>{review.comment}</p>
+            <li className={css.item} key={i}>
+              <div className={css.inner}>
+                <span className={css.letter}>{review.reviewer_name[0]}</span>
+                <div>
+                  <p className={css.name}>{review.reviewer_name}</p>
+                  <p className={css.rating}>
+                    {renderRating(review.reviewer_rating)}
+                  </p>
+                </div>
+              </div>
+              <p className={css.comment}>{review.comment}</p>
             </li>
           ))}
         </ul>
