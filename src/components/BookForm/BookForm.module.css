@@ -26,8 +26,21 @@
 }
 
 .input {
+  padding: 18px;
+  border-radius: 12px;
+  background-color: var(--bg-color);
+  border: none;
+  outline: none;
+  margin-bottom: 14px;
 }
 .textarea {
+  padding: 18px;
+  height: 118px;
+  border-radius: 12px;
+  background-color: var(--bg-color);
+  border: none;
+  resize: none;
+  outline: none;
   margin-bottom: 24px;
 }
 
