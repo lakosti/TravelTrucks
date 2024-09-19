@@ -11,7 +11,7 @@ const ItemPage = () => {
   return (
     <>
       <Header />
-      <div className={css.section}>
+      <div className={css.container}>
         <DetailInfo />
         <DetailBar />
         <div className={css.navBar}>

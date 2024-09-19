@@ -1,7 +1,9 @@
-.section {
+.container {
+  width: 1312px;
   padding: 120px 64px;
   display: flex;
   gap: 64px;
+  margin: 0 auto;
 }
 
 /* .catalogWrap {

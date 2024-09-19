@@ -1,10 +1,18 @@
-.section {
+/* .section {
   padding: 120px 64px;
-}
+} */
 
 .navBar {
   display: flex;
-  gap: 50px;
+  gap: 40px;
   justify-content: center;
   /* justify-content: space-between; */
+}
+
+.container {
+  max-width: 1312px;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+  padding: 120px 64px;
+  margin: 0 auto;
 }

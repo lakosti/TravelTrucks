@@ -1,6 +1,8 @@
 import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
+import Features from "../Features/Features.jsx";
+import Reviews from "../Reviews/Reviews.jsx";
 import Layout from "../Layout/Layout.jsx";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
@@ -11,8 +13,10 @@ const DetailPage = lazy(() => import("../../pages/DetailPage/DetailPage.jsx"));
 const FavouritePage = lazy(() =>
   import("../../pages/FavouritePage/FavouritePage.jsx")
 );
-const Features = lazy(() => import("../../components/Features/Features.jsx"));
-const Reviews = lazy(() => import("../../components/Reviews/Reviews.jsx"));
+
+//спричиняє проктрутку (спробувати розібратись)
+// const Features = lazy(() => import("../../components/Features/Features.jsx"));
+// const Reviews = lazy(() => import("../../components/Reviews/Reviews.jsx"));
 
 const App = () => {
   return (

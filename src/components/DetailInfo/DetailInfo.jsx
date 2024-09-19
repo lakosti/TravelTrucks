@@ -56,8 +56,8 @@ const DetailInfo = () => {
                 className={css.img}
                 key={i}
                 src={original}
-                width={480}
-                height={380}
+                width={292}
+                height={312}
               />
             ))}
           </div>

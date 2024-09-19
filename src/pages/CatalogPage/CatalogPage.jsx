@@ -8,7 +8,7 @@ const CatalogPage = () => {
   return (
     <>
       <Header />
-      <section className={css.section}>
+      <section className={css.container}>
         <Filters />
         <Items />
       </section>
